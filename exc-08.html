@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 8</title>
+    <script type="text/javascript">
+        function ordenarLista() {
+            const lista = [9, 2, 5, 1, 7, 3];
+
+            // Ordena a lista em ordem crescente
+            lista.sort(function (a, b) {
+                return a - b;
+            });
+
+            alert("Resultado: Lista ordenada: [" + lista.join(", ") + "]");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercício 8</h1>
+    <form>
+        <button onclick="ordenarLista()">Ordenar Lista</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercicio 9</title>
+    <script type="text/javascript">
+        function calcularFatorial() {
+            const numero = parseInt(prompt("Calcular o fatorial de:"));
+            let fatorial = 1;
+
+            for (let i = 1; i <= numero; i++) {
+                fatorial *= i;
+            }
+
+            alert(`Resultado: O fatorial de ${numero} é ${fatorial}.`);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercicio 9</h1>
+    <form>
+        <button onclick="calcularFatorial()">Calcular Fatorial</button>
+    </form>
+</body>
+
+</html>

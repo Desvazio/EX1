@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 5</title>
+    <script type="text/javascript">
+        function calcularMedia() {
+            const inputLista = prompt("Digite uma lista de números separados por vírgula (por exemplo, 5,10,15,20):");
+            const listaNumeros = inputLista.split(',').map(Number);
+
+            if (listaNumeros.length === 0) {
+                alert("Resultado: A lista está vazia, não é possível calcular a média.");
+                return;
+            }
+
+            const soma = listaNumeros.reduce((acumulador, numero) => acumulador + numero, 0);
+            const media = soma / listaNumeros.length;
+
+            alert("Resultado: A média dos números é " + media + ".");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercício 5</h1>
+    <form>
+        <button onclick="calcularMedia()">Calcular Média</button>
+    </form>
+</body>
+
+</html>

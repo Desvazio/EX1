@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercicio 04</title>
+    <script type="text/javascript">
+        function contarPalavras() {
+            const frase = prompt("Digite uma frase:");
+            
+            // Divide a frase em palavras usando espaço como delimitador
+            const palavras = frase.split(" ").filter(Boolean);
+            
+            const numPalavras = palavras.length;
+
+            if (numPalavras > 0) {
+                alert("Resultado: A frase possui " + numPalavras + " palavra(s).");
+            } else {
+                alert("Resultado: A frase não possui palavras.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercicio 04</h1>
+    <form>
+        <button onclick="contarPalavras()">Contar Palavras na Frase</button>
+    </form>
+</body>
+
+</html>

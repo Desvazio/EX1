@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 6</title>
+    <script type="text/javascript">
+        function verificarPalindromo() {
+            const palavra = prompt("Digite uma palavra para verificar se é um palíndromo:");
+            const palavraFormatada = palavra.toLowerCase().replace(/[^a-z]/g, ''); // Remover caracteres não-alfabéticos
+            const reverso = palavraFormatada.split('').reverse().join('');
+
+            if (palavraFormatada === reverso) {
+                alert(`Resultado: A palavra "${palavra}" é um palíndromo.`);
+            } else {
+                alert(`Resultado: A palavra "${palavra}" não é um palíndromo.`);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercício 6</h1>
+    <form>
+        <button onclick="verificarPalindromo()">Verificar Palíndromo</button>
+    </form>
+</body>
+
+</html>

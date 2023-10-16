@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercicio 03</title>
+    <script type="text/javascript">
+        function calcularSomaPares() {
+            const inputLista = prompt("Digite uma lista de números separados por vírgula (por exemplo, 2,4,6,8,10):");
+            const listaNumeros = inputLista.split(',').map(Number);
+
+            let somaPares = 0;
+
+            for (let i = 0; i < listaNumeros.length; i++) {
+                if (listaNumeros[i] % 2 === 0) {
+                    somaPares += listaNumeros[i];
+                }
+            }
+
+            if (somaPares > 0) {
+                alert("Resultado: A soma dos números pares é " + somaPares + ".");
+            } else {
+                alert("Resultado: A lista não contém números pares.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercicio 03</h1>
+    <form>
+        <button onclick="calcularSomaPares()">Calcular Soma dos Números Pares</button>
+    </form>
+</body>
+
+</html>

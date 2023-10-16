@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulador de Banco</title>
+</head>
+<body>
+    <h1>Simulador de Banco</h1>
+
+    <div id="saldo">
+        <p>Saldo inicial: R$ <span id="saldoAtual">500</span></p>
+    </div>
+
+    <button id="depositoBtn">Depósito</button>
+    <button id="saqueBtn">Saque</button>
+
+    <p id="mensagem"></p>
+
+    <script>
+        // Variáveis para armazenar o saldo
+        let saldo = 500;
+
+        // Atualiza o saldo exibido na página
+        function atualizarSaldo() {
+            document.getElementById("saldoAtual").textContent = saldo.toFixed(2);
+        }
+
+        // Função para realizar um depósito
+        function realizarDeposito() {
+            const valorDeposito = parseFloat(prompt("Digite o valor do depósito:"));
+            if (!isNaN(valorDeposito) && valorDeposito > 0) {
+                saldo += valorDeposito;
+                atualizarSaldo();
+            }
+        }
+
+        // Função para realizar um saque
+        function realizarSaque() {
+            const valorSaque = parseFloat(prompt("Digite o valor do saque:"));
+            if (!isNaN(valorSaque) && valorSaque > 0) {
+                if (valorSaque <= saldo) {
+                    saldo -= valorSaque;
+                    atualizarSaldo();
+                } else {
+                    alert("Saldo insuficiente para realizar o saque.");
+                }
+            }
+        }
+
+        // Associar funções aos botões
+        document.getElementById("depositoBtn").addEventListener("click", realizarDeposito);
+        document.getElementById("saqueBtn").addEventListener("click", realizarSaque);
+
+        // Inicializa o saldo na página
+        atualizarSaldo();
+    </script>
+</body>
+</html>

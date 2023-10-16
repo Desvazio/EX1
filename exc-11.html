@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercício 11</title>
+    <script type="text/javascript">
+        const palavras = ["elefante", "banana", "computador", "programacao", "javascript"];
+        let palavraEscolhida = "";
+        let letrasCorretas = [];
+        let letrasErradas = [];
+        let tentativasRestantes = 6;
+
+        function escolherPalavraAleatoria() {
+            const indice = Math.floor(Math.random() * palavras.length);
+            palavraEscolhida = palavras[indice];
+            letrasCorretas = [];
+            letrasErradas = [];
+            tentativasRestantes = 6;
+            atualizarTela();
+        }
+
+        function adivinharLetra() {
+            const letra = document.getElementById("letra").value;
+            if (letra.length !== 1 || !/[a-z]/.test(letra)) {
+                alert("Por favor, insira uma única letra minúscula válida.");
+                return;
+            }
+
+            if (palavraEscolhida.includes(letra)) {
+                if (!letrasCorretas.includes(letra)) {
+                    letrasCorretas.push(letra);
+                }
+            } else {
+                if (!letrasErradas.includes(letra)) {
+                    letrasErradas.push(letra);
+                    tentativasRestantes--;
+                }
+            }
+
+            atualizarTela();
+        }
+
+        function atualizarTela() {
+            const palavraExibida = palavraEscolhida
+                .split('')
+                .map(letra => letrasCorretas.includes(letra) ? letra : '_')
+                .join(' ');
+
+            document.getElementById("palavra").textContent = palavraExibida;
+            document.getElementById("letras-erradas").textContent = letrasErradas.join(', ');
+            document.getElementById("tentativas").textContent = `Tentativas restantes: ${tentativasRestantes}`;
+
+            if (palavraExibida === palavraEscolhida) {
+                alert("Parabéns, você adivinhou a palavra!");
+                escolherPalavraAleatoria();
+            } else if (tentativasRestantes === 0) {
+                alert(`Você esgotou suas tentativas. A palavra era "${palavraEscolhida}".`);
+                escolherPalavraAleatoria();
+            }
+        }
+
+        window.onload = escolherPalavraAleatoria;
+    </script>
+</head>
+
+<body>
+    <h1>Exercício 11 - Jogo da Forca</h1>
+    <p>Palavra: <span id="palavra"></span></p>
+    <p>Letras Erradas: <span id="letras-erradas"></span></p>
+    <p id="tentativas">Tentativas restantes: 6</p>
+    <input type="text" id="letra" maxlength="1">
+    <button onclick="adivinharLetra()">Adivinhar Letra</button>
+</body>
+
+</html>
